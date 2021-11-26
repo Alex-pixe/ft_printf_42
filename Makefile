@@ -6,7 +6,7 @@
 #    By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/11 15:17:31 by cbridget          #+#    #+#              #
-#    Updated: 2021/11/25 19:26:35 by cbridget         ###   ########.fr        #
+#    Updated: 2021/11/26 14:36:05 by cbridget         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = libftprintf.a
 HEAD = headers/ft_printf.h
 
 LIST = ft_printf.c my_parser.c get_extension.c subsidiary.c subsidiary_two.c\
-my_realloc.c
+my_realloc.c create_c%.c
 
 OBJ = $(addprefix obj/,$(LIST:.c=.o))
 

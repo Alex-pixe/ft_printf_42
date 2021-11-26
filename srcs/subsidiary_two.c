@@ -6,14 +6,14 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 17:19:09 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/25 18:18:31 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/26 15:59:56 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-char	*ft_itoa_new(long long n, char *result)
+/*char	*ft_itoa_new(long long n, char *result)
 {
 	long long	number;
 	size_t		discharge;
@@ -45,9 +45,9 @@ void	check_size(long long number, size_t *discharge)
 		*discharge *= 10;
 		number /= 10;
 	}
-}
+}*/
 
-void	ft_itoa_base(unsigned long numb, int base, char *line, int i)
+void	ft_itoa_base(unsigned long numb, int base, char *line, int i)//check this
 {
 	if (numb % base > 9)
 		line[i++] = numb % base - 10 + 'a';

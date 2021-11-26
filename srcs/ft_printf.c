@@ -6,13 +6,14 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 13:36:04 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/25 19:44:30 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/26 16:28:04 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
 #include <stdio.h> //fix
+#include <limits.h>
 
 int		ft_printf(const char *format, ...)
 {
@@ -75,7 +76,7 @@ int	put_result(t_flags *f_arg)
 {
 	int	length;
 
-	length = f_arg->numb_simb--;
+	length = f_arg->numb_simb;
 	write(1, f_arg->result, length);
 	free(f_arg->result);
 	free(f_arg);
@@ -86,8 +87,8 @@ int	put_result(t_flags *f_arg)
 {
 	int i, j;
 
-	i = ft_printf("%d\n", 35);
-	j = printf("%d\n", 35);
+	i = ft_printf(" %d \n", INT_MIN);
+	j = printf(" %d \n", INT_MIN);
 	printf("my=%d, libc=%d\n\n", i, j);
 	return 0;
 }*/
