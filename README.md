@@ -1,3 +1,3 @@
-this is third progect for school.
-recode printf function with cspdiuxX% conversions
-bonus part: it must works with "0-+# " flags and with precision, width
+this is my third progect for school.
+you need to recode printf function with cspdiuxX% conversions
+bonus part: it should work with "0-+# " (space is also flag) flags and with precision and width
