@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 15:22:31 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/26 14:46:07 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/28 16:02:39 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,11 @@ int	get_extension(int *i, va_list *args, t_flags *f_arg, const char *format)
 
 	j = *i;
 	(*i)++;
-	if (format[j] == 'd' || format[j] == 'i' || format[j] == 'c'
-		|| format[j] == '%' || format[j] == 's' || format[j] == 'u'
+	if (format[j] == 'd' || format[j] == 'i' || format[j] == 's' || format[j] == 'u'
 		|| format[j] == 'p' || format[j] == 'x' || format[j] == 'X')
 		return (extension_two(args, f_arg, format[j]));
+	else if (format[j] == 'c' || format[j] == '%')
+		return (create_res_c(args, f_arg, format[j]));
 	else
 	{
 		free(f_arg->result);
@@ -34,15 +35,16 @@ int	extension_two(va_list *args, t_flags *f_arg, char convers)
 {
 	if (get_arg(args, f_arg, convers))
 		return (1);
-	/*if (f_arg->precision)
+	if (f_arg->precision)
 	{
-		if (put_precision(args, f_arg))// do it
+		if (precision_form(f_arg, convers))
 			return (1);
 	}
-	else
-		put_res();//do it
 	if (f_arg->width)
-		add_width();// do it*/
+	{
+		if (add_width(f_arg, convers))
+			return (1);
+	}
 	if (convers != 'c' && convers != '%')
 		f_arg->numb_simb = f_arg->tmp;
 	return (0);

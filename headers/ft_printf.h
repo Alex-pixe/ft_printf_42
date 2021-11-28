@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 17:08:21 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/26 16:00:09 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/28 15:47:13 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,11 @@ int		put_result(t_flags *f_arg);
 int	create_res_c(va_list *args, t_flags *f_arg, char convers);
 int	create_c_one(t_flags *f_arg, char tmp, char convers);
 int	put_symbol(t_flags *f_arg, char symbol, char mod);
+
+int	precision_form(t_flags *f_arg, char convers);
+int	add_pr(t_flags *f_arg, int sign);
+int	add_width(t_flags *f_arg, char convers);
+int	width_start(t_flags *f_arg);
+int	width_end(t_flags *f_arg);
 
 #endif

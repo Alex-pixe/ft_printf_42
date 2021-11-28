@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:37:50 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/26 16:26:11 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/28 16:02:49 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,15 @@ int	get_arg(va_list *args, t_flags *f_arg, char convers)
 				else
 					ft_itoa_base(-tmp, 10, &numb[1], 0);
 			}
+			else if (f_arg->flag_p)
+			{
+				numb[0] = '+';
+				ft_itoa_base(tmp, 10, &numb[1], 0);
+			}
 			else
 				ft_itoa_base(tmp, 10, numb, 0);
 		}
-		if (tmp < 0)
+		if (tmp < 0 || f_arg->flag_p)
 			line = (reverse(&numb[1])) - 1;
 		else
 			line = reverse(numb);
@@ -55,8 +60,6 @@ int	get_arg(va_list *args, t_flags *f_arg, char convers)
 		line = reverse(numb + 2);
 		line = line - put_0x(f_arg, convers, numb);
 	}
-	else if (convers == 'c' || convers == '%')
-		return (create_res_c(args, f_arg, convers));
 	else
 	{
 		if (f_arg->flag_p)
@@ -76,7 +79,7 @@ int	put_arg(t_flags *f_arg, char *line)
 	while ((unsigned int)(length + f_arg->numb_simb) >= f_arg->size)
 	{
 		f_arg->result = my_realloc(f_arg, 0);
-		if (!f_arg->result)
+		if (!f_arg)
 			return (1);
 	}
 	f_arg->tmp = f_arg->numb_simb;

@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 14:05:22 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/26 15:08:37 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/28 13:22:54 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ int	put_symbol(t_flags *f_arg, char symbol, char mod)
 {
 	if ((unsigned int)f_arg->numb_simb >= f_arg->size)
 		f_arg->result = my_realloc(f_arg, 0);
-	if (!f_arg->result)
+	if (!f_arg)
 		return (1);
 	if (mod)
 		f_arg->result[f_arg->numb_simb] = symbol;

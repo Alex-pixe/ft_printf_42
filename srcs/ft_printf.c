@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 13:36:04 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/26 16:28:04 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/28 16:36:51 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		ft_printf(const char *format, ...)
 		}
 		if ((unsigned int)f_arg->numb_simb == f_arg->size)
 			f_arg->result = my_realloc(f_arg, 0);
-		if (!f_arg->result)
+		if (!f_arg)
 			return (-1);
 		f_arg->result[f_arg->numb_simb++] = format[i++];
 	}
@@ -87,8 +87,8 @@ int	put_result(t_flags *f_arg)
 {
 	int i, j;
 
-	i = ft_printf(" %d \n", INT_MIN);
-	j = printf(" %d \n", INT_MIN);
+	i = ft_printf(" %-9d %-10d %-11d %-12d %-13d %-14d %-15d\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
+	j = printf(" %-9d %-10d %-11d %-12d %-13d %-14d %-15d\n", INT_MAX, INT_MIN, (int)LONG_MAX, (int)LONG_MIN, (int)ULONG_MAX, 0, -42);
 	printf("my=%d, libc=%d\n\n", i, j);
 	return 0;
 }*/
