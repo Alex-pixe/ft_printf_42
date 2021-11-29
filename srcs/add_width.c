@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 14:43:02 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/28 16:36:28 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/29 21:23:57 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,12 @@ int	add_width(t_flags *f_arg, char convers)
 	//	if (f_arg->tmp - f_arg->numb_simb > f_arg->width)
 	//		f_arg->tmp = f_arg->numb_simb +f_arg->width;
 	//}
-	if (f_arg->flag_n && convers != 's')
+	if (f_arg->flag_n && convers != 's' && !f_arg->precision && !f_arg->flag_prec)
 	{
 		if (f_arg->result[f_arg->numb_simb] == '-' || f_arg->result[f_arg->numb_simb] == '+')
 			f_arg->width--;
+		if ((convers == 'x' || convers == 'X') && f_arg->flag_o)
+			f_arg->width -= 2;
 		f_arg->precision = f_arg->width;
 		if (precision_form(f_arg, convers))
 			return (1);

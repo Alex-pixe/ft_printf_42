@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 15:22:31 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/28 16:02:39 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/29 20:34:57 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ int	extension_two(va_list *args, t_flags *f_arg, char convers)
 {
 	if (get_arg(args, f_arg, convers))
 		return (1);
-	if (f_arg->precision)
+	if (add_space(f_arg, convers))
+		return (1);
+	if (f_arg->flag_prec)
 	{
 		if (precision_form(f_arg, convers))
 			return (1);
@@ -47,5 +49,33 @@ int	extension_two(va_list *args, t_flags *f_arg, char convers)
 	}
 	if (convers != 'c' && convers != '%')
 		f_arg->numb_simb = f_arg->tmp;
+	return (0);
+}
+
+int	add_space(t_flags *f_arg, char convers)
+{
+	int	i;
+
+	i = f_arg->tmp;
+	if (!f_arg->flag_s)
+		return (0);
+	if (convers == 's' || f_arg->result[f_arg->numb_simb] == '-'
+		|| f_arg->result[f_arg->numb_simb] == '+')
+		return (0);
+	if (f_arg->size <= (unsigned int)(f_arg->tmp + 1))
+	{
+		f_arg->result = my_realloc(f_arg, 0);
+		if (!f_arg)
+			return (1);
+	}
+	while(f_arg->numb_simb <= i)
+	{
+		f_arg->result[i + 1] = f_arg->result[i];
+		i--;
+	}
+	f_arg->result[++i] = ' ';
+	f_arg->result[++f_arg->tmp] = '\0';
+	if (f_arg->width && f_arg->flag_n && !f_arg->flag_prec)
+		f_arg->width--;
 	return (0);
 }

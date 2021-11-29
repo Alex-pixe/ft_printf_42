@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 13:36:04 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/28 16:36:51 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/29 21:24:26 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,14 +52,6 @@ t_flags	*start_struct(void)
 	f_arg = (t_flags *)malloc(sizeof(t_flags) * 1);
 	if (!f_arg)
 		return ((void *)0);
-	f_arg->flag_m = 0;
-	f_arg->flag_n = 0;
-	f_arg->flag_o = 0;
-	f_arg->flag_p = 0;
-	f_arg->flag_s = 0;
-	f_arg->flag_prec = 0;
-	f_arg->width = 0;
-	f_arg->precision = 0;
 	f_arg->size = 20;
 	f_arg->numb_simb = 0;
 	//f_arg->tmp = 0; ???
@@ -83,12 +75,25 @@ int	put_result(t_flags *f_arg)
 	return (length);
 }
 
+void	set_zero(t_flags *f_arg)
+{
+	f_arg->flag_m = 0;
+	f_arg->flag_n = 0;
+	f_arg->flag_o = 0;
+	f_arg->flag_p = 0;
+	f_arg->flag_s = 0;
+	f_arg->flag_prec = 0;
+	f_arg->width = 0;
+	f_arg->precision = 0;
+}
+
 /*int main()
 {
 	int i, j;
+	//static char *s_hidden = "hi low\0don't print me lol\0";
 
-	i = ft_printf(" %-9d %-10d %-11d %-12d %-13d %-14d %-15d\n", INT_MAX, INT_MIN, LONG_MAX, LONG_MIN, ULONG_MAX, 0, -42);
-	j = printf(" %-9d %-10d %-11d %-12d %-13d %-14d %-15d\n", INT_MAX, INT_MIN, (int)LONG_MAX, (int)LONG_MIN, (int)ULONG_MAX, 0, -42);
+	i = ft_printf("%#05x\n", 43);
+	j = printf("%#05x\n", 43);
 	printf("my=%d, libc=%d\n\n", i, j);
 	return 0;
 }*/

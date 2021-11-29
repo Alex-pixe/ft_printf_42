@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:37:50 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/28 16:02:49 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/29 21:18:42 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ int	put_0x(t_flags *f_arg, char convers, char *num)
 			num[1] = 'x';
 			return (2);
 		}
+		f_arg->flag_o = 0;
 	}
 	return (0);
 }

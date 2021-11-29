@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 17:05:13 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/25 15:23:29 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/29 20:02:08 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int	pars(int *i, va_list *args, t_flags *f_arg, const char *format)
 {
 	(*i)++;
+	set_zero(f_arg);
 	check_flags(i, args, f_arg, format);
 	return (get_extension(i, args, f_arg, format));
 }
@@ -58,6 +59,7 @@ void	save_width(const char *format, int *i, t_flags *f_arg, va_list *args)
 		f_arg->width = va_arg(*args, int);
 		if (f_arg->width < 0)// check this letter
 		{
+			f_arg->flag_n = 0;
 			f_arg->flag_m = 1;
 			f_arg->width *= -1;
 		}

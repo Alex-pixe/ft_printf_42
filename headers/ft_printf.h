@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 17:08:21 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/28 15:47:13 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/29 19:55:35 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,8 @@ int	add_pr(t_flags *f_arg, int sign);
 int	add_width(t_flags *f_arg, char convers);
 int	width_start(t_flags *f_arg);
 int	width_end(t_flags *f_arg);
+
+int	add_space(t_flags *f_arg, char convers);
+void	set_zero(t_flags *f_arg);
 
 #endif

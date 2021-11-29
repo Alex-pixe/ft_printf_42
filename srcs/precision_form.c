@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:20:31 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/28 15:56:01 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/29 21:22:36 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,10 @@ int	precision_form(t_flags *f_arg, char convers)
 	sign = 0;
 	j = f_arg->precision;
 	i = f_arg->tmp - f_arg->numb_simb;
-	if (f_arg->result[f_arg->numb_simb] == '-' || f_arg->result[f_arg->numb_simb] == '+')
+	if (f_arg->result[f_arg->numb_simb] == '-' || f_arg->result[f_arg->numb_simb] == '+' || f_arg->flag_s)
 		sign += 1;
+	else if ((convers == 'x' || convers == 'X') && f_arg->flag_o)
+		sign += 2;
 	j = f_arg->precision + sign;
 	while(i < j && convers != 's')
 	{
@@ -30,6 +32,13 @@ int	precision_form(t_flags *f_arg, char convers)
 			return (1);
 		j--;
 	}
+	if ((convers == 's' || f_arg->result[f_arg->numb_simb] == '0') && !f_arg->flag_o)
+	{
+		if ((f_arg->tmp - f_arg->numb_simb) > f_arg->precision)
+			f_arg->tmp = f_arg->numb_simb + f_arg->precision;
+	}
+	if (!f_arg->precision && f_arg->flag_p && f_arg->result[f_arg->numb_simb + 1] == '0')
+		f_arg->tmp -= 1;
 	return 0;
 }
 
