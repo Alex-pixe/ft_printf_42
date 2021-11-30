@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 15:22:31 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/29 20:34:57 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/30 16:36:01 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ int	get_extension(int *i, va_list *args, t_flags *f_arg, const char *format)
 
 	j = *i;
 	(*i)++;
-	if (format[j] == 'd' || format[j] == 'i' || format[j] == 's' || format[j] == 'u'
-		|| format[j] == 'p' || format[j] == 'x' || format[j] == 'X')
+	if (format[j] == 'd' || format[j] == 'i' || format[j] == 's'
+		|| format[j] == 'u' || format[j] == 'p' || format[j] == 'x'
+		|| format[j] == 'X')
 		return (extension_two(args, f_arg, format[j]));
 	else if (format[j] == 'c' || format[j] == '%')
 		return (create_res_c(args, f_arg, format[j]));
@@ -68,7 +69,7 @@ int	add_space(t_flags *f_arg, char convers)
 		if (!f_arg)
 			return (1);
 	}
-	while(f_arg->numb_simb <= i)
+	while (f_arg->numb_simb <= i)
 	{
 		f_arg->result[i + 1] = f_arg->result[i];
 		i--;

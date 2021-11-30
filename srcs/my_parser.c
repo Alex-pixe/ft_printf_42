@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 17:05:13 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/29 20:02:08 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/30 16:36:29 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	save_width(const char *format, int *i, t_flags *f_arg, va_list *args)
 	if (format[*i] == '*')
 	{
 		f_arg->width = va_arg(*args, int);
-		if (f_arg->width < 0)// check this letter
+		if (f_arg->width < 0)
 		{
 			f_arg->flag_n = 0;
 			f_arg->flag_m = 1;

@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 13:55:56 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/25 17:45:33 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/30 16:37:48 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*my_realloc(t_flags *f_arg, char mod)
 {
-	char			*tmp;
+	char	*tmp;
 
 	if (mod)
 	{

@@ -6,48 +6,14 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 17:19:09 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/26 15:59:56 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/30 17:07:32 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include "libft.h"
 
-/*char	*ft_itoa_new(long long n, char *result)
-{
-	long long	number;
-	size_t		discharge;
-	size_t		i;
-
-	number = n;
-	discharge = 1;
-	i = -1;
-	check_size(number, &discharge);
-	if (n < 0)
-	{
-		result[++i] = '-';
-		number *= -1;
-	}
-	while (discharge > 0)
-	{
-		result[++i] = (number / discharge) + '0';
-		number %= discharge;
-		discharge /= 10;
-	}
-	result[++i] = '\0';
-	return (result);
-}
-
-void	check_size(long long number, size_t *discharge)
-{
-	while (number > 9)
-	{
-		*discharge *= 10;
-		number /= 10;
-	}
-}*/
-
-void	ft_itoa_base(unsigned long numb, int base, char *line, int i)//check this
+void	ft_itoa_base(unsigned long numb, int base, char *line, int i)
 {
 	if (numb % base > 9)
 		line[i++] = numb % base - 10 + 'a';

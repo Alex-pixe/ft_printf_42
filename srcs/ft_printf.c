@@ -6,16 +6,13 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 13:36:04 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/29 21:24:26 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/30 16:34:02 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-#include <stdio.h> //fix
-#include <limits.h>
-
-int		ft_printf(const char *format, ...)
+int	ft_printf(const char *format, ...)
 {
 	t_flags	*f_arg;
 	va_list	args;
@@ -30,7 +27,6 @@ int		ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			
 			if (pars(&i, &args, f_arg, format))
 				return (-1);
 			continue ;
@@ -47,14 +43,13 @@ int		ft_printf(const char *format, ...)
 
 t_flags	*start_struct(void)
 {
-	t_flags *f_arg;
-	
+	t_flags	*f_arg;
+
 	f_arg = (t_flags *)malloc(sizeof(t_flags) * 1);
 	if (!f_arg)
 		return ((void *)0);
 	f_arg->size = 20;
 	f_arg->numb_simb = 0;
-	//f_arg->tmp = 0; ???
 	f_arg->result = my_realloc(f_arg, 1);
 	if (!f_arg->result)
 	{
@@ -86,14 +81,3 @@ void	set_zero(t_flags *f_arg)
 	f_arg->width = 0;
 	f_arg->precision = 0;
 }
-
-/*int main()
-{
-	int i, j;
-	//static char *s_hidden = "hi low\0don't print me lol\0";
-
-	i = ft_printf("%#05x\n", 43);
-	j = printf("%#05x\n", 43);
-	printf("my=%d, libc=%d\n\n", i, j);
-	return 0;
-}*/

@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 14:43:02 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/29 21:23:57 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/30 17:12:15 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,11 @@
 
 int	add_width(t_flags *f_arg, char convers)
 {
-	//if (convers == 's')
-	//{
-	//	if (f_arg->tmp - f_arg->numb_simb > f_arg->width)
-	//		f_arg->tmp = f_arg->numb_simb +f_arg->width;
-	//}
-	if (f_arg->flag_n && convers != 's' && !f_arg->precision && !f_arg->flag_prec)
+	if (f_arg->flag_n && convers != 's' && !f_arg->precision
+		&& !f_arg->flag_prec)
 	{
-		if (f_arg->result[f_arg->numb_simb] == '-' || f_arg->result[f_arg->numb_simb] == '+')
+		if (f_arg->result[f_arg->numb_simb] == '-'
+			|| f_arg->result[f_arg->numb_simb] == '+')
 			f_arg->width--;
 		if ((convers == 'x' || convers == 'X') && f_arg->flag_o)
 			f_arg->width -= 2;
@@ -31,16 +28,23 @@ int	add_width(t_flags *f_arg, char convers)
 	}
 	else
 	{
-		if (f_arg->flag_m)
-		{
-			if (width_end(f_arg))
-				return (1);
-		}
-		else
-		{
-			if (width_start(f_arg))
-				return (1);
-		}
+		if (add_width_two(f_arg))
+			return (1);
+	}
+	return (0);
+}
+
+int	add_width_two(t_flags *f_arg)
+{
+	if (f_arg->flag_m)
+	{
+		if (width_end(f_arg))
+			return (1);
+	}
+	else
+	{
+		if (width_start(f_arg))
+			return (1);
 	}
 	return (0);
 }
@@ -53,8 +57,8 @@ int	width_start(t_flags *f_arg)
 
 	j = f_arg->width;
 	i = f_arg->tmp - f_arg->numb_simb;
-	d = f_arg->tmp;
-	while(i < j)
+	d = f_arg->tmp + 1;
+	while (i < j)
 	{
 		if (f_arg->size <= (unsigned int)(f_arg->tmp + 1))
 		{
@@ -62,11 +66,8 @@ int	width_start(t_flags *f_arg)
 			if (!f_arg)
 				return (1);
 		}
-		while(f_arg->numb_simb <= d)
-		{
+		while (f_arg->numb_simb <= --d)
 			f_arg->result[d + 1] = f_arg->result[d];
-			d--;
-		}
 		f_arg->result[++d] = ' ';
 		f_arg->result[++f_arg->tmp] = '\0';
 		d = f_arg->tmp;
@@ -82,7 +83,7 @@ int	width_end(t_flags *f_arg)
 
 	j = f_arg->width;
 	i = f_arg->tmp - f_arg->numb_simb;
-	while(i < j)
+	while (i < j)
 	{
 		if (f_arg->size <= (unsigned int)(f_arg->tmp + 1))
 		{

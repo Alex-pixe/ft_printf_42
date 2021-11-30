@@ -6,7 +6,7 @@
 /*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 17:08:21 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/29 19:55:35 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/11/30 17:18:02 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,32 +41,32 @@ void	save_width(const char *format, int *i, t_flags *f_arg, va_list *args);
 void	save_precision(const char *format, int *i, t_flags *f_arg,
 			va_list *args);
 t_flags	*start_struct(void);
-int		get_extension(int *i, va_list *args, t_flags *f_arg, const char *format);
+int		get_extension(int *i, va_list *args, t_flags *f_arg,
+			const char *format);
 int		extension_two(va_list *args, t_flags *f_arg, char convers);
-
-//void	check_size(long long number, size_t *discharge);
 int		get_arg(va_list *args, t_flags *f_arg, char convers);
+char	*get_arg_two(va_list *args, t_flags *f_arg, char convers, char *numb);
+int		get_arg_three(va_list *args, t_flags *f_arg, char *numb);
 int		put_arg(t_flags *f_arg, char *line);
 char	*my_realloc(t_flags *f_arg, char mod);
 char	*my_realloc_two(t_flags *f_arg);
-//char	*ft_itoa_new(long long n, char *result);
 void	ft_itoa_base(unsigned long numb, int base, char *line, int i);
 char	*reverse(char *line);
 void	change_case(char *line);
 int		put_0x(t_flags *f_arg, char convers, char *num);
 int		put_result(t_flags *f_arg);
-
-int	create_res_c(va_list *args, t_flags *f_arg, char convers);
-int	create_c_one(t_flags *f_arg, char tmp, char convers);
-int	put_symbol(t_flags *f_arg, char symbol, char mod);
-
-int	precision_form(t_flags *f_arg, char convers);
-int	add_pr(t_flags *f_arg, int sign);
-int	add_width(t_flags *f_arg, char convers);
-int	width_start(t_flags *f_arg);
-int	width_end(t_flags *f_arg);
-
-int	add_space(t_flags *f_arg, char convers);
+int		create_res_c(va_list *args, t_flags *f_arg, char convers);
+int		create_c_one(t_flags *f_arg, char tmp, char convers);
+int		create_c_two(t_flags *f_arg, char tmp, char convers);
+int		put_symbol(t_flags *f_arg, char symbol, char mod);
+int		precision_form(t_flags *f_arg, char convers);
+void	precision_form_two(t_flags *f_arg, char convers);
+int		add_pr(t_flags *f_arg, int sign);
+int		add_width(t_flags *f_arg, char convers);
+int		add_width_two(t_flags *f_arg);
+int		width_start(t_flags *f_arg);
+int		width_end(t_flags *f_arg);
+int		add_space(t_flags *f_arg, char convers);
 void	set_zero(t_flags *f_arg);
 
 #endif
