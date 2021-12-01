@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   precision_form.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cbridget <cbridget@student-21school.ru>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:20:31 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/30 16:45:55 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/12/01 17:43:51 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,8 @@ int	add_pr(t_flags *f_arg, int sign)
 	if (f_arg->size <= (unsigned int)(f_arg->tmp + 1))
 	{
 		f_arg->result = my_realloc(f_arg, 0);
-		if (!f_arg)
-			return (1);
+		if (!f_arg->result)
+			return (clean_flags(f_arg, 0));
 	}
 	while (f_arg->numb_simb + sign <= i)
 	{

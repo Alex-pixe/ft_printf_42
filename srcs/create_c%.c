@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   create_c%.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cbridget <cbridget@student-21school.ru>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 14:05:22 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/30 16:28:06 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/12/01 17:44:13 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ int	put_symbol(t_flags *f_arg, char symbol, char mod)
 {
 	if ((unsigned int)(f_arg->numb_simb + 1) >= f_arg->size)
 		f_arg->result = my_realloc(f_arg, 0);
-	if (!f_arg)
-		return (1);
+	if (!f_arg->result)
+		return (clean_flags(f_arg, 0));
 	if (mod)
 		f_arg->result[f_arg->numb_simb] = symbol;
 	else

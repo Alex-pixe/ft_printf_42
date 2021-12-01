@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   add_width.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cbridget <cbridget@student-21school.ru>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/28 14:43:02 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/30 17:12:15 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/12/01 17:44:29 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,8 @@ int	width_start(t_flags *f_arg)
 		if (f_arg->size <= (unsigned int)(f_arg->tmp + 1))
 		{
 			f_arg->result = my_realloc(f_arg, 0);
-			if (!f_arg)
-				return (1);
+			if (!f_arg->result)
+				return (clean_flags(f_arg, 0));
 		}
 		while (f_arg->numb_simb <= --d)
 			f_arg->result[d + 1] = f_arg->result[d];
@@ -88,8 +88,8 @@ int	width_end(t_flags *f_arg)
 		if (f_arg->size <= (unsigned int)(f_arg->tmp + 1))
 		{
 			f_arg->result = my_realloc(f_arg, 0);
-			if (!f_arg)
-				return (1);
+			if (!f_arg->result)
+				return (clean_flags(f_arg, 0));
 		}
 		f_arg->result[f_arg->tmp++] = ' ';
 		i++;

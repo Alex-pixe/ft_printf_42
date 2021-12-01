@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   subsidiary.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cbridget <cbridget@student-21school.ru>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 16:37:50 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/30 17:03:05 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/12/01 17:43:27 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,8 +90,8 @@ int	put_arg(t_flags *f_arg, char *line)
 	while ((unsigned int)(length + f_arg->numb_simb) >= f_arg->size)
 	{
 		f_arg->result = my_realloc(f_arg, 0);
-		if (!f_arg)
-			return (1);
+		if (!f_arg->result)
+			return (clean_flags(f_arg, 0));
 	}
 	f_arg->tmp = f_arg->numb_simb;
 	while (*line)

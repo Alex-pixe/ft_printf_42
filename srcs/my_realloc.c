@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   my_realloc.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cbridget <cbridget@student-21school.ru>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 13:55:56 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/30 16:37:48 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/12/01 17:44:39 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ char	*my_realloc_two(t_flags *f_arg)
 	if (!tmp)
 	{
 		free(f_arg->result);
-		free(f_arg);
 		return ((void *)0);
 	}
 	while (i < f_arg->size)
@@ -49,4 +48,18 @@ char	*my_realloc_two(t_flags *f_arg)
 	f_arg->size *= 2;
 	free(f_arg->result);
 	return (tmp);
+}
+
+int	clean_flags(t_flags *f_arg, char mod)
+{
+	if (mod)
+	{
+		free(f_arg);
+		return (-1);
+	}
+	else
+	{
+		free(f_arg);
+		return (1);
+	}
 }

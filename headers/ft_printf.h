@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cbridget <cbridget@student-21school.ru>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/11 17:08:21 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/30 17:18:02 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/12/01 17:45:34 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int		get_arg_three(va_list *args, t_flags *f_arg, char *numb);
 int		put_arg(t_flags *f_arg, char *line);
 char	*my_realloc(t_flags *f_arg, char mod);
 char	*my_realloc_two(t_flags *f_arg);
+int		clean_flags(t_flags *f_arg, char mod);
 void	ft_itoa_base(unsigned long numb, int base, char *line, int i);
 char	*reverse(char *line);
 void	change_case(char *line);

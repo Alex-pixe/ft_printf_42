@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cbridget <cbridget@student.21-school.ru    +#+  +:+       +#+        */
+/*   By: cbridget <cbridget@student-21school.ru>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 13:36:04 by cbridget          #+#    #+#             */
-/*   Updated: 2021/11/30 16:34:02 by cbridget         ###   ########.fr       */
+/*   Updated: 2021/12/01 17:44:48 by cbridget         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ int	ft_printf(const char *format, ...)
 		}
 		if ((unsigned int)f_arg->numb_simb == f_arg->size)
 			f_arg->result = my_realloc(f_arg, 0);
-		if (!f_arg)
-			return (-1);
+		if (!f_arg->result)
+			return (clean_flags(f_arg, 1));
 		f_arg->result[f_arg->numb_simb++] = format[i++];
 	}
-	f_arg->result[f_arg->numb_simb] = '\0';
+	va_end(args);
 	return (put_result(f_arg));
 }
 
@@ -64,6 +64,7 @@ int	put_result(t_flags *f_arg)
 	int	length;
 
 	length = f_arg->numb_simb;
+	f_arg->result[f_arg->numb_simb] = '\0';
 	write(1, f_arg->result, length);
 	free(f_arg->result);
 	free(f_arg);
