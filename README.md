@@ -8,8 +8,8 @@ you can read about it [here](https://en.wikipedia.org/wiki/Printf_format_string)
 Bonus part: it should work with "0-+# " (space is also flag) flags and with precision  
 and width of a standard printf!
   
-* You can see the full assignment here [subject](?)
-* Coding style: [norminette](?)
+* You can see the full assignment here [subject](https://github.com/cbridget42/ft_printf_42/blob/main/subject/en.subject.pdf)
+* Coding style: [norminette](https://github.com/cbridget42/ft_printf_42/blob/main/subject/en.norm.pdf)
   
 ### Usage:
 * first you need to download the repository and compile the code! To do this, run:
@@ -25,7 +25,7 @@ and width of a standard printf!
 * also you can:
 	```bash
 	make clean //remove objects files
-	make fclean //remove objects files and libft.a
+	make fclean //remove objects files and libftprintf.a
 	```
 * a simple call could be like this:
 	```c
@@ -39,5 +39,5 @@ and width of a standard printf!
 ![image](?)
   
 ### final score:
-![image](?)
+![image](https://github.com/cbridget42/ft_printf_42/blob/main/images/Screenshot%20from%202022-11-13%2020-39-39.png)
   
