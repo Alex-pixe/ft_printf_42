@@ -33,10 +33,7 @@ and width of a standard printf!
 	```
   
 ### Tests:
-* Mandatory part
-![image](?)
-* Bonus part
-![image](?)
+![image](https://github.com/cbridget42/ft_printf_42/blob/main/images/Screen%20Shot%202022-11-15%20at%203.06.36%20PM.png)
   
 ### final score:
 ![image](https://github.com/cbridget42/ft_printf_42/blob/main/images/Screenshot%20from%202022-11-13%2020-39-39.png)
